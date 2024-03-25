@@ -1,46 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebRTC webcam</title>
-    <style>
-        button {
-            padding: 8px 16px;
-        }
-
-        video {
-            width: 100%;
-        }
-
-        .option {
-            margin-bottom: 8px;
-        }
-
-        #media {
-            max-width: 1280px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB-RTC p2p calls & chat</title>
 </head>
 
 <body>
-
-    <div class="option">
-        <input id="use-stun" type="checkbox" />
-        <label for="use-stun">Use STUN server</label>
+    <h1>WEB-RTC p2p calls & chat</h1>
+    <ul class="userlistbox"></ul>
+    <div class="camera-box">
+        <video id="received_video" autoplay></video>
+        <video id="local_video" autoplay muted></video>
+        <button id="hangup-button" onclick="hangUpCall();" disabled>Hang Up</button>
     </div>
-    <button id="start" onclick="start()">Start</button>
-    <button id="stop" style="display: none" onclick="stop()">Stop</button>
-
-    <div id="media">
-        <h2>Media</h2>
-
-        <audio id="audio" autoplay="true"></audio>
-        <video id="video" autoplay="true" playsinline="true"></video>
+    <div style="border: solid 1px; width: fit-content; padding: 10px;">
+        <p>Подключенные пользователи</p>
+        <ul id='users' style="margin: 10px;"></ul>
     </div>
-
-    <script src="client.js"></script>
+    <script src="/client.js"></script>
 </body>
 
 </html>
